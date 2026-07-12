@@ -9,12 +9,12 @@ import java.util.Map;
 
 import static java.sql.DriverManager.getConnection;
 public class oracleConnector {
-//  private static final String URL = "jdbc:oracle:thin:@localhost:1521/sh"; the old from the 12d
 
-  private static final String URL = "jdbc:oracle:thin:@localhost:1521/XE"; // this one is from docker
 
+  private static final String URL = "jdbc:oracle:thin:@localhost:1521:XE";
   private static final String USERNAME = "system";
   private static final String PASSWORD = "rootroot";
+
   private static Connection connection;
 
   //  establish the connectION

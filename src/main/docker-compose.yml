@@ -1,5 +1,3 @@
-version: '3.8' # Specify compose file version
-
 services:
   oracle-db: # Service name (can be anything)
     image: gvenzl/oracle-xe # Use the Oracle Express Edition image
@@ -17,6 +15,8 @@ services:
       - ./sql-scripts:/container-entrypoint-initdb.d
       # Named volume for persistent database data
       - oracle_data:/opt/oracle/oradata
+    # Add this line for shared memory allocation:
+    shm_size: 2g # Allocate 2GB of shared memory for the container
     # Optional: Healthcheck to wait until DB is ready (improves startup reliability)
     # healthcheck:
     #   test: ["CMD", "sqlplus", "-L", "system/rootroot@//localhost:1521/XE", "exit"]
